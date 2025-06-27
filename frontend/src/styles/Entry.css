@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+.entry-section {
+  @apply bg-gray-50 p-4 rounded-md block shadow;
+}
+
+.entry-name {
+  @apply font-semibold text-lg text-gray-800;
+}
+
+.entry-container {
+  @apply p-5 bg-white rounded-md shadow-md border border-gray-200 space-y-2 hover:shadow-md transition min-h-[222px];
+}
+
+.entry-list {
+  @apply grid grid-cols-3 gap-3;
+}
+
+.entry-button {
+  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition;
+}
+
+.entry-button-disabled {
+  @apply bg-gray-300 text-gray-600 cursor-not-allowed hover:bg-gray-300;
+}
+
+.delete-button {
+  @apply text-red-500 hover:text-red-700 flex items-center gap-1 text-sm cursor-pointer;
+}
+
+.entry-row {
+  @apply flex items-center justify-between py-1 border-b
+}
+
+.copy-icon {
+  @apply text-gray-400 hover:text-black cursor-pointer
+}
