@@ -41,23 +41,18 @@ class ViewsTestCase(APITestCase):
         url = reverse("entry-list-create")
         data = {
             "folder": self.folder.id,
-            "title": "Gmail",
             "username": "email_user",
             "password": "email_pass",
-            "notes": "Mail account",
         }
         response = self.client.post(url, data, **self.auth_header)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data["title"], "Gmail")
 
     def test_get_entries(self):
         Entry.objects.create(
             folder=self.folder,
-            title="Test Entry",
             username="login",
             password="secret",
-            notes=""
         )
         url = reverse("entry-list-create")
         response = self.client.get(url, **self.auth_header)
@@ -68,10 +63,8 @@ class ViewsTestCase(APITestCase):
     def test_delete_entry(self):
         entry = Entry.objects.create(
             folder=self.folder,
-            title="Reddit",
             username="reddit_user",
             password="pass123",
-            notes="Reddit login"
         )
         url = reverse("entry-delete", args=[entry.id])
         response = self.client.delete(url, **self.auth_header)

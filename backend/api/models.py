@@ -11,11 +11,9 @@ class Folder(models.Model):
 
 class Entry(models.Model):
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE, related_name="entries")
-    title = models.CharField(max_length=100)
     username = models.CharField(max_length=100, blank=True)
     password = models.CharField(max_length=256)
     url = models.URLField(blank=True)
-    notes = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

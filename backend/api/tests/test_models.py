@@ -18,13 +18,9 @@ class ModelsTestCase(TestCase):
     def test_create_entry(self):
         entry = Entry.objects.create(
             folder=self.folder,
-            title="Facebook",
             username="fb_user",
             password="fb_pass",
-            notes="This is a test note"
         )
         self.assertEqual(entry.folder, self.folder)
-        self.assertEqual(entry.title, "Facebook")
         self.assertEqual(entry.username, "fb_user")
         self.assertEqual(entry.password, "fb_pass")
-        self.assertEqual(entry.notes, "This is a test note")

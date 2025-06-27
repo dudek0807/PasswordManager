@@ -16,10 +16,12 @@ class UserSerializer(serializers.ModelSerializer):
 class FolderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Folder
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'user']
+        read_only_fields = ["user"]
 
 
 class EntrySerializer(serializers.ModelSerializer):
+    folder_name = serializers.CharField(source='folder.name', read_only=True)
     class Meta:
         model = Entry
-        fields = ['id', 'folder', 'title', 'username', 'password', 'url', 'notes', 'created_at', 'updated_at']
+        fields = ['id', 'folder', 'folder_name', 'username', 'password', 'url', 'created_at', 'updated_at']
